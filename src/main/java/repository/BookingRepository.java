@@ -6,27 +6,27 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
-//Task To Do: Add proper Annotation 
+//booking To Do: Add proper Annotation 
 @Repository
 public class BookingRepository {
-    // Task To Do: Define a collection to store tasks
+    // booking To Do: Define a collection to store bookings
 	private List<Booking> BookingList;
 
     public void save(Booking booking) {
-        // Task To Do: Add the given task to the collection
+        // booking To Do: Add the given booking to the collection
     	Optional<Bookinge> existingBooking = findById(booking.getId());
     if (existingBooking.isPresent()) {
-        // Update the existing service
+        // Update the existing booking
         int index = BookingList.indexOf(existingBooking.get());
         BookingList.set(index, booking);
     } else {
-        // Add the new service to the repository
+        // Add the new booking to the repository
         BookingList.add(booking);
     }
     }
 
     public Optional<Booking> findById(long id) {
-        // Task To Do: Return a task by its id if it exists in the collection
+        // booking To Do: Return a booking by its id if it exists in the collection
     	  	
     	for (int i = 0; i < BookingList.size(); i++) {
     		if (BookingList.get(i).getId() == id) {
@@ -38,7 +38,7 @@ public class BookingRepository {
     }
 
     public void deletebyById(long id) {
-        // Task To Do: Remove the given task from the collection
+        // booking To Do: Remove the given booking from the collection
     	
     	for (int i = 0; i < BookingList.size(); i++) {
     		if (BookingList.get(i).getId() == id) {
@@ -48,7 +48,7 @@ public class BookingRepository {
     }
 
     public List<Booking> findAll() {
-        // Task To Do: Return all tasks in the collection
+        // booking To Do: Return all bookings in the collection
     	if (BookingList.isEmpty()) {
     		return null; // Placeholder return
     	}
