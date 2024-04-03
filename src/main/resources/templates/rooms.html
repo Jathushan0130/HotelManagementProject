@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rooms</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Rooms</h1>
+    
+    <div class="navigation">
+        <a href="customers.html">Customers</a> |
+        <a href="bookings.html">Bookings</a> |
+        <a href="services.html">Services</a>
+    </div>
+    
+    <div class="form-box">
+        <h2 style="text-align: center;">Add Customer</h2>
+        <form th:action="@{/addRoom}" method="post">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" required><br><br>
+            <label for="roomNumber">Room Number:</label>
+            <input type="text" id="roomNumber" name="roomNumber" required><br><br>
+            <label for="type">Type:</label>
+            <input type="text" id="type" name="type" required><br><br>
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price" required><br><br>
+            <button type="submit">Add Room</button>
+        </form>
+    </div>
+    
+    <h2 style="text-align: center;">List of Rooms</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Room Number</th>
+                <th>Type</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="room : ${rooms}">
+                <td th:text="${room.id}"></td>
+                <td th:text="${room.roomNumber}"></td>
+                <td th:text="${room.type}"></td>
+                <td th:text="${room.price}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

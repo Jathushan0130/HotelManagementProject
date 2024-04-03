@@ -34,7 +34,9 @@ form {
 }
 
 label {
-    display: block;
+    display: inline-block; 
+    width: 120px;
+    text-align: right; 
     margin-bottom: 5px;
 }
 
@@ -58,7 +60,7 @@ button:hover {
 
 table {
     border-collapse: collapse;
-    width: 80%; 
+    width: 50%;
     margin: 20px auto; 
 }
 
@@ -80,9 +82,9 @@ th {
 }
 
 .form-box {
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
     border-radius: 5px;
     padding: 20px;
-    width: 60%;
-    margin: 0 auto;
+    width: 30%;
+    margin: 20px auto;
 }

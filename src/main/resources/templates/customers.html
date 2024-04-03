@@ -2,34 +2,33 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Customer Management</title>
-    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <title>Customers</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h1>Customer Management</h1>
+    <h1>Customers</h1>
     
-
     <div class="navigation">
         <a href="rooms.html">Rooms</a> |
         <a href="bookings.html">Bookings</a> |
         <a href="services.html">Services</a>
     </div>
     
-
     <div class="form-box">
         <h2 style="text-align: center;">Add Customer</h2>
         <form th:action="@{/addCustomer}" method="post">
-            <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName" required><br><br>
-            
-            <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" required><br><br>
-            
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" required><br><br>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" required><br><br>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required><br><br>
             <button type="submit">Add Customer</button>
         </form>
     </div>
     
-
     <h2 style="text-align: center;">List of Customers</h2>
     <table>
         <thead>
