@@ -17,7 +17,7 @@ public class ProvidedServiceController {
     @GetMapping("/services")
     public String listServices(Model model) {
         // Updated to use the correct service method name
-        model.addAttribute("services", providedServiceService.getAllProvidedServices());
+        model.addAttribute("services", providedServiceServicR.getAllProvidedServices());
         return "services";
     }
 
