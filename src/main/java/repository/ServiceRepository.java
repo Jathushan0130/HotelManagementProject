@@ -1,6 +1,6 @@
 package repository;
 
-import tms.model.ProvidedService;
+import model.ProvidedService;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

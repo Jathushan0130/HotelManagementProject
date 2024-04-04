@@ -1,6 +1,6 @@
 package repository;
 
-import tms.model.Booking;
+import model.Booking;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,7 +14,7 @@ public class BookingRepository {
 
     public void save(Booking booking) {
         // booking To Do: Add the given booking to the collection
-    	Optional<Bookinge> existingBooking = findById(booking.getId());
+    	Optional<Booking> existingBooking = findById(booking.getId());
     if (existingBooking.isPresent()) {
         // Update the existing booking
         int index = BookingList.indexOf(existingBooking.get());
@@ -42,7 +42,7 @@ public class BookingRepository {
     	
     	for (int i = 0; i < BookingList.size(); i++) {
     		if (BookingList.get(i).getId() == id) {
-    			sBookingList.remove(i);
+    			BookingList.remove(i);
     		}
     	}
     }
