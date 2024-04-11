@@ -35,7 +35,17 @@ public class RoomService {
     }
 
     public void deleteRoomById(Long id) {
-        roomRepository.deleteById(id);
+        roomRepository.deletebyById(id);
     }
+
+	public Object findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void save(Room room) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

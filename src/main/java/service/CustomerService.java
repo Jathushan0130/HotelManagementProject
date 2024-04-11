@@ -35,7 +35,7 @@ public class CustomerService {
     }
 
     public void deleteCustomerById(Long id) {
-        customerRepository.deleteById(id);
+        customerRepository.deletebyById(id);
     }
 
 }

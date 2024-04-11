@@ -35,7 +35,7 @@ public class ProvidedServiceService {
     }
 
     public void deleteProvidedServiceById(Long id) {
-        serviceRepository.deleteById(id);
+        serviceRepository.deletebyById(id);
     }
 
 }

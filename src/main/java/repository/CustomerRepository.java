@@ -1,6 +1,6 @@
 package repository;
 
-import tms.model.Customer;
+import model.Customer;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public class CustomerRepository {
     // Customer To Do: Define a collection to store Customers
-	private List<Customere> CustomerList;
+	private List<Customer> CustomerList;
 
     public void save(Customer customer) {
         // Customer To Do: Add the given Customer to the collection

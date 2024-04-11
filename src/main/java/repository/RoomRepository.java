@@ -1,6 +1,6 @@
 package repository;
 
-import tms.model.Room;
+import model.Room;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
