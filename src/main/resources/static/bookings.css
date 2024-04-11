@@ -1,0 +1,49 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style for the navigation links */
+.navigation a {
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+/* Style for the form box */
+.form-box {
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Center-align table headers */
+table th {
+    text-align: center;
+}
+
+/* Style for the table */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+/* Style for table header row */
+thead {
+    background-color: #f2f2f2;
+}
+
+/* Style for table rows */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Style for table cells */
+td, th {
+    padding: 8px;
+    border: 1px solid #ddd;
+}

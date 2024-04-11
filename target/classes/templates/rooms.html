@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Management Project</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<style> 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('hello.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+}
+
+
+.navigation {
+    margin: 20px auto;
+    text-align: center;
+}
+.navigation a {
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+
+.form-box {
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: relative; 
+    background-color: #f9f9f9; 
+}
+
+
+.form-box button {
+    margin-right: 10px; 
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.list-rooms-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+
+table th {
+    text-align: center;
+}
+
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+
+thead {
+    background-color: #f2f2f2;
+}
+
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+td, th {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px; 
+}
+
+.modal-content table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style> 
+<body>
+    <h1>Rooms</h1>
+    
+    <div class="navigation">
+        <a href="bookings.html"> Booking </a> |
+        <a href="customers.html">Customers</a> |
+        <a href="rooms.html">Rooms</a> |
+        <a href="services.html">Services</a>
+    </div>
+
+    <div class="form-box">
+        <h2 style="text-align: center;">Add Room</h2>
+        <form th:action="@{/addRoom}" method="post">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" required placeholder="Enter ID"><br><br>
+            <label for="roomNumber">Room Number:</label>
+            <input type="text" id="roomNumber" name="roomNumber" required placeholder="Enter Room Number"><br><br>
+            <label for="type">Type:</label>
+            <input type="text" id="type" name="type" required placeholder="Enter Type"><br><br>
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price" required placeholder="Enter Price"><br><br>
+            <button type="submit">Add Room</button>
+   
+            <button type="button" class="list-rooms-btn" onclick="openModal()">List of Rooms</button>
+        </form>
+    </div>
+    
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 style="text-align: center;">List of Rooms</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Room Number</th>
+                        <th>Type</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                    <tr>
+                        <td>1</td>
+                        <td>101</td>
+                        <td>Standard</td>
+                        <td>$100</td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+    
+        window.onclick = function(event) {
+            var modal = document.getElementById('myModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
