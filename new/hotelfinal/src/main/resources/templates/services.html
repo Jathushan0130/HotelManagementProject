@@ -18,35 +18,37 @@
     
     <div class="form-box">
         <h2 style="text-align: center;">Add Service</h2>
-        <form th:action="@{/services}" method="post">
+        <form id="addServiceForm" th:action="@{/services}" method="post">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Clean1" required><br><br>
+            <input type="text" id="name" name="name" required><br><br>
             <label for="description">Description:</label>
-            <input type="text" id="description" name="description" placeholder="Broom" required><br><br>
+            <input type="text" id="description" name="description" required><br><br>
             <label for="price">Price:</label>
-            <input type="text" id="price" name="price" placeholder="9821" required><br><br>
-            <button type="submit">Add Service</button>
+            <input type="text" id="price" name="price" required><br><br>
+            <button type="submit" onclick="toggleServiceList()">Add Service</button>
         </form>
     </div>
     
-    <h2 style="text-align: center;">List of Services</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="service : ${services}">
-                <td th:text="${service.id}"></td>
-                <td th:text="${service.name}"></td>
-                <td th:text="${service.description}"></td>
-                <td th:text="${service.price}"></td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="serviceListContainer" style="display: none;">
+        <h2 style="text-align: center;">List of Services</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+
+    <script>
+        function toggleServiceList() {
+            var serviceList = document.getElementById("serviceListContainer");
+            serviceList.style.display = (serviceList.style.display === "none") ? "block" : "none";
+        }
+    </script>
 </body>
 </html>
