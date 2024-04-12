@@ -1,3 +1,2 @@
 # HotelManagementProject
-
-hi
+This is a readme file that includes detailed instructions on how to run our project. First, You would need to open Eclipse as an administrator and head over to the 'Project Explorer'. You would next right-click in the 'Project Explorer' and select 'Import'. Within the import window, you want to expand the 'General' folder, select 'Existing Projects Into The Workplace', and click 'Next'. Then choose 'Select archive file' and browse to locate the .zip provided after downloading the zip folder. Once selected eclipse will display the projects found in the archive. Make sure the project is checked off and click 'finish' to import it into your workspace.
