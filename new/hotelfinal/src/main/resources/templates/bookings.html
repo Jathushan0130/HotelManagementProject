@@ -34,7 +34,7 @@
     <table>
         <thead>
             <tr>
-				<th>Id</th>
+		<th>Id</th>
                 <th>Customer Id</th>
                 <th>Room Id</th>
                 <th>Start Date</th>
@@ -43,7 +43,7 @@
         </thead>
         <tbody>
             <tr th:each="booking : ${bookings}">
-				<td th:text="${booking.id}"></td>
+		<td th:text="${booking.id}"></td>
                 <td th:text="${booking.customerId}"></td>
                 <td th:text="${booking.roomId}"></td>
                 <td th:text="${booking.startDate}"></td>
