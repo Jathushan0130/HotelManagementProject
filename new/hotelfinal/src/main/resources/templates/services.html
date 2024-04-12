@@ -9,12 +9,12 @@
 <body>
     <h1>Services</h1>
     
-	<div class="navigation">
-		<a href="customers">Customers</a> |
-	    <a href="rooms">Rooms</a> |
-	    <a href="services">Services</a> |      
-		<a href="bookings">Bookings</a> 
-	</div>
+    <div class="navigation">
+        <a href="customers">Customers</a> |
+        <a href="rooms">Rooms</a> |
+        <a href="services">Services</a> |      
+        <a href="bookings">Bookings</a> 
+    </div>
     
     <div class="form-box">
         <h2 style="text-align: center;">Add Service</h2>
@@ -25,13 +25,13 @@
             <input type="text" id="description" name="description" required><br><br>
             <label for="price">Price:</label>
             <input type="text" id="price" name="price" required><br><br>
-            <button type="submit" onclick="toggleServiceList()">Add Service</button>
+            <button type="button" onclick="addServiceToList()">Add Service</button>
         </form>
     </div>
     
-    <div id="serviceListContainer" style="display: none;">
+    <div id="serviceListContainer">
         <h2 style="text-align: center;">List of Services</h2>
-        <table>
+        <table id="serviceTable">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -40,14 +40,21 @@
                     <th>Price</th>
                 </tr>
             </thead>
-
+            <tbody id="serviceListBody">
+            </tbody>
         </table>
     </div>
 
     <script>
-        function toggleServiceList() {
-            var serviceList = document.getElementById("serviceListContainer");
-            serviceList.style.display = (serviceList.style.display === "none") ? "block" : "none";
+        function addServiceToList() {
+            var name = document.getElementById("name").value;
+            var description = document.getElementById("description").value;
+            var price = document.getElementById("price").value;
+
+            var serviceListBody = document.getElementById("serviceListBody");
+            var newRow = serviceListBody.insertRow();
+
+            newRow.innerHTML = "<td></td><td>" + name + "</td><td>" + description + "</td><td>" + price + "</td>";
         }
     </script>
 </body>

@@ -9,12 +9,12 @@
 <body>
     <h1>Rooms</h1>
     
-	<div class="navigation">
-		<a href="customers">Customers</a> |
-	    <a href="rooms">Rooms</a> |
-	    <a href="services">Services</a> |      
-		<a href="bookings">Bookings</a> 
-	</div>
+    <div class="navigation">
+        <a href="customers">Customers</a> |
+        <a href="rooms">Rooms</a> |
+        <a href="services">Services</a> |      
+        <a href="bookings">Bookings</a> 
+    </div>
     
     <div class="form-box">
         <h2 style="text-align: center;">Add Room</h2>
@@ -25,13 +25,13 @@
             <input type="text" id="roomType" name="roomType"  required><br><br>
             <label for="price">Price:</label>
             <input type="text" id="price" name="price" required><br><br>
-            <button type="submit" onclick="toggleRoomList()">Add Room</button>
+            <button type="button" onclick="addRoomToList()">Add Room</button>
         </form>
     </div>
     
-    <div id="roomListContainer" style="display: none;">
+    <div id="roomListContainer">
         <h2 style="text-align: center;">List of Rooms</h2>
-        <table>
+        <table id="roomTable">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -40,13 +40,21 @@
                     <th>Price</th>
                 </tr>
             </thead>
+            <tbody id="roomListBody">
+            </tbody>
         </table>
     </div>
 
     <script>
-        function toggleRoomList() {
-            var roomList = document.getElementById("roomListContainer");
-            roomList.style.display = (roomList.style.display === "none") ? "block" : "none";
+        function addRoomToList() {
+            var roomNumber = document.getElementById("roomNumber").value;
+            var roomType = document.getElementById("roomType").value;
+            var price = document.getElementById("price").value;
+
+            var roomListBody = document.getElementById("roomListBody");
+            var newRow = roomListBody.insertRow();
+
+            newRow.innerHTML = "<td></td><td>" + roomNumber + "</td><td>" + roomType + "</td><td>" + price + "</td>";
         }
     </script>
 </body>
