@@ -5,61 +5,47 @@
     <title>Services</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
 <body>
     <h1>Services</h1>
     
-    <div class="navigation">
-        <a href="customers">Customers</a> |
-        <a href="rooms">Rooms</a> |
-        <a href="services">Services</a> |      
-        <a href="bookings">Bookings</a> 
-    </div>
+	<div class="navigation">
+		<a href="customers">Customers</a> |
+	    <a href="rooms">Rooms</a> |
+	    <a href="services">Services</a> |      
+		<a href="bookings">Bookings</a> 
+	</div>
     
     <div class="form-box">
         <h2 style="text-align: center;">Add Service</h2>
-        <form id="addServiceForm" th:action="@{/services}" method="post">
+        <form th:action="@{/services}" method="post">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br><br>
+            <input type="text" id="name" name="name" placeholder="Clean1" required><br><br>
             <label for="description">Description:</label>
-            <input type="text" id="description" name="description" required><br><br>
+            <input type="text" id="description" name="description" placeholder="Broom" required><br><br>
             <label for="price">Price:</label>
-            <input type="text" id="price" name="price" required><br><br>
-            <button type="button" onclick="addService()">Add Service</button>
+            <input type="text" id="price" name="price" placeholder="9821.00" required><br><br>
+            <button type="submit">Add Service</button>
         </form>
     </div>
     
-    <div id="serviceListContainer" style="display: none;">
-        <h2 style="text-align: center;">List of Services</h2>
-        <table id="serviceTable">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody id="serviceListBody">
-            </tbody>
-        </table>
-    </div>
-
-    <script>
-        function addService() {
-            var name = document.getElementById("name").value;
-            var description = document.getElementById("description").value;
-            var price = document.getElementById("price").value;
-
-            var serviceListBody = document.getElementById("serviceListBody");
-            var newRow = serviceListBody.insertRow();
-
-            newRow.innerHTML = "<td></td><td>" + name + "</td><td>" + description + "</td><td>" + price + "</td>";
-
-            // Show the service list container
-            var serviceListContainer = document.getElementById("serviceListContainer");
-            serviceListContainer.style.display = "block";
-        }
-    </script>
+    <h2 style="text-align: center;">List of Services</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="service : ${services}">
+                <td th:text="${service.id}"></td>
+                <td th:text="${service.name}"></td>
+                <td th:text="${service.description}"></td>
+                <td th:text="${service.price}"></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
