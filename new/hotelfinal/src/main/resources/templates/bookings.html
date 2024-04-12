@@ -32,7 +32,7 @@
         </form>
     </div>
     
-    <div id="bookingListContainer">
+    <div class="bookingListContainer">
         <h2 style="text-align: center;">List of Bookings</h2>
         <table id="bookingTable">
             <thead>
@@ -60,6 +60,9 @@
             var newRow = bookingListBody.insertRow();
 
             newRow.innerHTML = "<td></td><td>" + customerId + "</td><td>" + roomId + "</td><td>" + startDate + "</td><td>" + endDate + "</td>";
+
+            var bookingListContainer = document.querySelector(".bookingListContainer");
+            bookingListContainer.style.display = "block";
         }
     </script>
 </body>

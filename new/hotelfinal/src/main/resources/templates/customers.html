@@ -7,55 +7,58 @@
 </head>
 
 <body>
-    <h1>Customers</h1>
-    
-    <div class="navigation">
-        <a href="customers">Customers</a> |
-        <a href="rooms">Rooms</a> |
-        <a href="services">Services</a> |      
-        <a href="bookings">Bookings</a> 
-    </div>
-    
-    <div class="form-box">
-        <h2 style="text-align: center;">Add Customer</h2>
-        <form id="addCustomerForm" th:action="@{/customers}" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name"  required><br><br>
-            <label for="phoneNumber">Phone Number:</label>
-            <input type="text" id="phoneNumber" name="phoneNumber" required><br><br>
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email" required><br><br>
-            <button type="button" onclick="addCustomerToList()">Add Customer</button>
-        </form>
-    </div>
-    
-    <div id="customerListContainer">
-        <h2 style="text-align: center;">List of Customers</h2>
-        <table id="customerTable">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Phone Number</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody id="customerListBody">
-            </tbody>
-        </table>
-    </div>
+<h1>Customers</h1>
 
-    <script>
-        function addCustomerToList() {
-            var name = document.getElementById("name").value;
-            var phoneNumber = document.getElementById("phoneNumber").value;
-            var email = document.getElementById("email").value;
+<div class="navigation">
+    <a href="customers">Customers</a> |
+    <a href="rooms">Rooms</a> |
+    <a href="services">Services</a> |
+    <a href="bookings">Bookings</a>
+</div>
 
-            var customerListBody = document.getElementById("customerListBody");
-            var newRow = customerListBody.insertRow();
+<div class="form-box">
+    <h2 style="text-align: center;">Add Customer</h2>
+    <form th:action="@{/customers}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" required><br><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required><br><br>
+        <button type="button" onclick="addCustomerToList()">Add Customer</button>
+    </form>
+</div>
 
-            newRow.innerHTML = "<td></td><td>" + name + "</td><td>" + phoneNumber + "</td><td>" + email + "</td>";
-        }
-    </script>
+<div class="customerListContainer">
+    <h2 style="text-align: center;">List of Customers</h2>
+    <table class="customerTable">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody class="customerListBody">
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function addCustomerToList() {
+        var name = document.getElementById("name").value;
+        var phoneNumber = document.getElementById("phoneNumber").value;
+        var email = document.getElementById("email").value;
+
+        var customerListBody = document.querySelector(".customerListBody");
+        var newRow = customerListBody.insertRow();
+
+        newRow.innerHTML = "<td></td><td>" + name + "</td><td>" + phoneNumber + "</td><td>" + email + "</td>";
+
+        var customerListContainer = document.querySelector(".customerListContainer");
+        customerListContainer.style.display = "block";
+    }
+</script>
 </body>
 </html>
