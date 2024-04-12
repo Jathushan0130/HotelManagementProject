@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookings</title>
+    <link rel="stylesheet" 	type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Bookings</h1>
+    
+	<div class="navigation">
+		<a href="customers">Customers</a> |
+	    <a href="rooms">Rooms</a> |
+	    <a href="services">Services</a> |      
+		<a href="bookings">Bookings</a> 
+	</div>
+    
+    <div class="form-box">
+        <h2 style="text-align: center;">Add Booking</h2>
+        <form th:action="@{/bookings}" method="post">
+            <label for="customerId">Customer Id:</label>
+            <input type="text" id="customerId" name="customerId" required><br><br>
+            <label for="roomId">Room Id:</label>
+            <input type="text" id="roomId" name="roomId" required><br><br>
+            <label for="startDate">Start Date:</label>
+            <input type="text" id="startDate" name="startDate" required><br><br>
+            <label for="endDate">End Date:</label>
+            <input type="text" id="endDate" name="endDate" required><br><br>
+            <button type="submit">Add Booking</button>
+        </form>
+    </div>
+    
+    <h2 style="text-align: center;">List of Bookings</h2>
+    <table>
+        <thead>
+            <tr>
+				<th>Id</th>
+                <th>Customer Id</th>
+                <th>Room Id</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="booking : ${bookings}">
+				<td th:text="${booking.id}"></td>
+                <td th:text="${booking.customerId}"></td>
+                <td th:text="${booking.roomId}"></td>
+                <td th:text="${booking.startDate}"></td>
+                <td th:text="${booking.endDate}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
