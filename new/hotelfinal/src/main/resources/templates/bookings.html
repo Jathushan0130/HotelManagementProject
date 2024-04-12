@@ -3,67 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>Bookings</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" 	type="text/css" href="style.css">
 </head>
-
-
 <body>
     <h1>Bookings</h1>
     
-    <div class="navigation">
-        <a href="customers.html">Customers</a> |
-        <a href="rooms.html">Rooms</a> |
-        <a href="services.html">Services</a> |      
-        <a href="bookings.html">Bookings</a> 
-    </div>
+	<div class="navigation">
+		<a href="customers">Customers</a> |
+	    <a href="rooms">Rooms</a> |
+	    <a href="services">Services</a> |      
+		<a href="bookings">Bookings</a> 
+	</div>
     
     <div class="form-box">
         <h2 style="text-align: center;">Add Booking</h2>
-        <form id="addBookingForm" th:action="@{/bookings}" method="post">
+        <form th:action="@{/bookings}" method="post">
             <label for="customerId">Customer Id:</label>
-            <input type="text" id="customerId" name="customerId" required><br><br>
+            <input type="text" id="customerId" name="customerId" placeholder="1" required><br><br>
             <label for="roomId">Room Id:</label>
-            <input type="text" id="roomId" name="roomId"  required><br><br>
+            <input type="text" id="roomId" name="roomId" placeholder="1" required><br><br>
             <label for="startDate">Start Date:</label>
-            <input type="text" id="startDate" name="startDate" required><br><br>
+            <input type="text" id="startDate" name="startDate" placeholder="2024/03/21" required><br><br>
             <label for="endDate">End Date:</label>
-            <input type="text" id="endDate" name="endDate" required><br><br>
-            <button type="button" onclick="addBookingToList()">Add Booking</button>
+            <input type="text" id="endDate" name="endDate" placeholder="2024/07/01" required><br><br>
+            <button type="submit">Add Booking</button>
         </form>
     </div>
     
-    <div class="bookingListContainer">
-        <h2 style="text-align: center;">List of Bookings</h2>
-        <table id="bookingTable">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Customer Id</th>
-                    <th>Room Id</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                </tr>
-            </thead>
-            <tbody id="bookingListBody">
-            </tbody>
-        </table>
-    </div>
-
-    <script>
-        function addBookingToList() {
-            var customerId = document.getElementById("customerId").value;
-            var roomId = document.getElementById("roomId").value;
-            var startDate = document.getElementById("startDate").value;
-            var endDate = document.getElementById("endDate").value;
-
-            var bookingListBody = document.getElementById("bookingListBody");
-            var newRow = bookingListBody.insertRow();
-
-            newRow.innerHTML = "<td></td><td>" + customerId + "</td><td>" + roomId + "</td><td>" + startDate + "</td><td>" + endDate + "</td>";
-
-            var bookingListContainer = document.querySelector(".bookingListContainer");
-            bookingListContainer.style.display = "block";
-        }
-    </script>
+    <h2 style="text-align: center;">List of Bookings</h2>
+    <table>
+        <thead>
+            <tr>
+				<th>Id</th>
+                <th>Customer Id</th>
+                <th>Room Id</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="booking : ${bookings}">
+				<td th:text="${booking.id}"></td>
+                <td th:text="${booking.customerId}"></td>
+                <td th:text="${booking.roomId}"></td>
+                <td th:text="${booking.startDate}"></td>
+                <td th:text="${booking.endDate}"></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
