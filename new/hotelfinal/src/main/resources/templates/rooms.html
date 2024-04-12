@@ -5,60 +5,47 @@
     <title>Rooms</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
 <body>
-<h1>Rooms</h1>
-
-<div class="navigation">
-    <a href="customers">Customers</a> |
-    <a href="rooms">Rooms</a> |
-    <a href="services">Services</a> |
-    <a href="bookings">Bookings</a>
-</div>
-
-<div class="form-box">
-    <h2 style="text-align: center;">Add Room</h2>
-    <form th:action="@{/rooms}" method="post">
-        <label for="roomNumber">Room Number:</label>
-        <input type="text" id="roomNumber" name="roomNumber" required><br><br>
-        <label for="roomType">Room Type:</label>
-        <input type="text" id="roomType" name="roomType" required><br><br>
-        <label for="price">Price:</label>
-        <input type="text" id="price" name="price" required><br><br>
-        <button type="button" onclick="addRoomToList()">Add Room</button>
-    </form>
-</div>
-
-<div class="roomListContainer" style="display: none;">
+    <h1>Rooms</h1>
+    
+	<div class="navigation">
+		<a href="customers">Customers</a> |
+	    <a href="rooms">Rooms</a> |
+	    <a href="services">Services</a> |      
+		<a href="bookings">Bookings</a> 
+	</div>
+    
+    <div class="form-box">
+        <h2 style="text-align: center;">Add Room</h2>
+        <form th:action="@{/rooms}" method="post">
+            <label for="roomNumber">Room Number:</label>
+            <input type="text" id="roomNumber" name="roomNumber" placeholder="152" required><br><br>
+            <label for="type">Room Type:</label>
+            <input type="text" id="roomType" name="roomType" placeholder="L" required><br><br>
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price" placeholder="2678.00" required><br><br>
+            <button type="submit">Add Room</button>
+        </form>
+    </div>
+    
     <h2 style="text-align: center;">List of Rooms</h2>
-    <table class="roomTable">
+    <table>
         <thead>
-        <tr>
-            <th>ID</th>
-            <th>Room Number</th>
-            <th>Type</th>
-            <th>Price</th>
-        </tr>
+            <tr>
+                <th>ID</th>
+                <th>Room Number</th>
+                <th>Type</th>
+                <th>Price</th>
+            </tr>
         </thead>
-        <tbody class="roomListBody">
+        <tbody>
+            <tr th:each="room : ${rooms}">
+                <td th:text="${room.id}"></td>
+                <td th:text="${room.roomNumber}"></td>
+                <td th:text="${room.roomType}"></td>
+                <td th:text="${room.price}"></td>
+            </tr>
         </tbody>
     </table>
-</div>
-
-<script>
-    function addRoomToList() {
-        var roomNumber = document.getElementById("roomNumber").value;
-        var roomType = document.getElementById("roomType").value;
-        var price = document.getElementById("price").value;
-
-        var roomListBody = document.querySelector(".roomListBody");
-        var newRow = roomListBody.insertRow();
-
-        newRow.innerHTML = "<td></td><td>" + roomNumber + "</td><td>" + roomType + "</td><td>" + price + "</td>";
-
-        var roomListContainer = document.querySelector(".roomListContainer");
-        roomListContainer.style.display = "block";
-    }
-</script>
 </body>
 </html>
