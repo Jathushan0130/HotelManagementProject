@@ -9,11 +9,11 @@ With the link, http://localhost:8090/rooms , it will take you to the room manage
 
 ![image](https://github.com/Jathushan0130/HotelManagementProject/assets/91335338/4cc0ae5a-dbaf-4d35-aa14-810c4497e219)
 
-With the link, http://localhost:8090/services , it will take you to the service management page.
+With the link, http://localhost:8090/services , it will take you to the booking management page.
 
 ![image](https://github.com/Jathushan0130/HotelManagementProject/assets/91335338/663a5646-fa31-45fb-a151-34c556d9831d)
 
-With the link, http://localhost:8090/bookings , it will take you to the booking management page.
+With the link, http://localhost:8090/bookings , it will take you to the service management page.
 
 ![image](https://github.com/Jathushan0130/HotelManagementProject/assets/91335338/21433903-7cff-403f-af9a-cc61c06c683a)
 
