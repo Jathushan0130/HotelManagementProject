@@ -32,7 +32,7 @@
     <table>
         <thead>
             <tr>
-				<th>Id</th>
+		<th>Id</th>
                 <th>Full Name</th>
                 <th>Phone Number</th>
                 <th>Email</th>
@@ -40,8 +40,8 @@
         </thead>
         <tbody>
             <tr th:each="customer : ${customers}">
-				<td th:text="${customer.id}"></td>
-				<td th:text="${customer.name}"></td>
+		<td th:text="${customer.id}"></td>
+		<td th:text="${customer.name}"></td>
                 <td th:text="${customer.phoneNumber}"></td>
                 <td th:text="${customer.email}"></td>
             </tr>
