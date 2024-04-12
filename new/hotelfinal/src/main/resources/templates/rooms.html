@@ -5,6 +5,7 @@
     <title>Rooms</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
     <h1>Rooms</h1>
     
@@ -17,35 +18,36 @@
     
     <div class="form-box">
         <h2 style="text-align: center;">Add Room</h2>
-        <form th:action="@{/rooms}" method="post">
+        <form id="addRoomForm" th:action="@{/rooms}" method="post">
             <label for="roomNumber">Room Number:</label>
             <input type="text" id="roomNumber" name="roomNumber" required><br><br>
             <label for="type">Room Type:</label>
             <input type="text" id="roomType" name="roomType" required><br><br>
             <label for="price">Price:</label>
             <input type="text" id="price" name="price" required><br><br>
-            <button type="submit">Add Room</button>
+            <button type="submit" onclick="toggleRoomList()">Add Room</button>
         </form>
     </div>
     
-    <h2 style="text-align: center;">List of Rooms</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Room Number</th>
-                <th>Type</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="room : ${rooms}">
-                <td th:text="${room.id}"></td>
-                <td th:text="${room.roomNumber}"></td>
-                <td th:text="${room.roomType}"></td>
-                <td th:text="${room.price}"></td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="roomListContainer" style="display: none;">
+        <h2 style="text-align: center;">List of Rooms</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Room Number</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <script>
+        function toggleRoomList() {
+            var roomList = document.getElementById("roomListContainer");
+            roomList.style.display = (roomList.style.display === "none") ? "block" : "none";
+        }
+    </script>
 </body>
 </html>

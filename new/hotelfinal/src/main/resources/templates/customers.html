@@ -5,6 +5,7 @@
     <title>Customers</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
     <h1>Customers</h1>
     
@@ -17,35 +18,37 @@
     
     <div class="form-box">
         <h2 style="text-align: center;">Add Customer</h2>
-        <form th:action="@{/customers}" method="post">
+        <form id="addCustomerForm" th:action="@{/customers}" method="post">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br><br>
             <label for="phoneNumber">Phone Number:</label>
             <input type="text" id="phoneNumber" name="phoneNumber" required><br><br>
             <label for="email">Email:</label>
             <input type="text" id="email" name="email" required><br><br>
-            <button type="submit">Add Customer</button>
+            <button type="submit" onclick="toggleCustomerList()">Add Customer</button>
         </form>
     </div>
     
-    <h2 style="text-align: center;">List of Customers</h2>
-    <table>
-        <thead>
-            <tr>
-				<th>Id</th>
-                <th>Full Name</th>
-                <th>Phone Number</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="customer : ${customers}">
-				<td th:text="${customer.id}"></td>
-				<td th:text="${customer.name}"></td>
-                <td th:text="${customer.phoneNumber}"></td>
-                <td th:text="${customer.email}"></td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="customerListContainer" style="display: none;">
+        <h2 style="text-align: center;">List of Customers</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Full Name</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+
+    <script>
+        function toggleCustomerList() {
+            var customerList = document.getElementById("customerListContainer");
+            customerList.style.display = (customerList.style.display === "none") ? "block" : "none";
+        }
+    </script>
 </body>
 </html>
